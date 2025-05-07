@@ -1,2 +1,9 @@
 /SqlConnectionPoolProject/build
 /TaskManagerDemo/build
+/AnimatedHeart/AnimatedHeart/.vs
+/AnimatedHeart/AnimatedHeart/AnimatedHeart/x64
+*.pdb
+/Win32UIDemo/.vs
+/Win32UIDemo/build
+/Win32UIDemo/out
+/AnimatedHeart/AnimatedHeart/x64
