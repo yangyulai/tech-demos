@@ -1,0 +1,502 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <PreferredToolArchitecture>x64</PreferredToolArchitecture>
+  </PropertyGroup>
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="MinSizeRel|x64">
+      <Configuration>MinSizeRel</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="RelWithDebInfo|x64">
+      <Configuration>RelWithDebInfo</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{AC45F73C-0B70-3A00-A7DA-1469B01DB5F2}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <WindowsTargetPlatformVersion>10.0.22621.0</WindowsTargetPlatformVersion>
+    <Platform>x64</Platform>
+    <ProjectName>xlnt</ProjectName>
+    <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">J:\github\tech-demos\SvnOperation\build\external\xlnt\source\Debug\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">xlnt.dir\Debug\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">xlntd</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.lib</TargetExt>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">J:\github\tech-demos\SvnOperation\build\external\xlnt\source\Release\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">xlnt.dir\Release\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">xlnt</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.lib</TargetExt>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">J:\github\tech-demos\SvnOperation\build\external\xlnt\source\MinSizeRel\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">xlnt.dir\MinSizeRel\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">xlnt</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">.lib</TargetExt>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">J:\github\tech-demos\SvnOperation\build\external\xlnt\source\RelWithDebInfo\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">xlnt.dir\RelWithDebInfo\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">xlnt</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">.lib</TargetExt>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>J:\github\xlnt\source\..\include;J:\github\xlnt\source\..\source;J:\github\xlnt\source\..\source\..\third-party\libstudxml;J:\github\xlnt\source\..\source\..\third-party\miniz;J:\github\xlnt\source\..\source\..\third-party\utfcpp;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /utf-8</AdditionalOptions>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <DisableSpecificWarnings>4251;4275;4068</DisableSpecificWarnings>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
+      <LanguageStandard>stdcpp14</LanguageStandard>
+      <MinimalRebuild></MinimalRebuild>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <Optimization>Disabled</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <SupportJustMyCode></SupportJustMyCode>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level4</WarningLevel>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;XLNT_STATIC=1;_CRT_SECURE_NO_WARNINGS=1;_WIN32_WINNT=0x0A01;_SILENCE_CXX23_ALIGNED_STORAGE_DEPRECATION_WARNING;CMAKE_INTDIR="Debug"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_DEBUG;_WINDOWS;XLNT_STATIC=1;_CRT_SECURE_NO_WARNINGS=1;_WIN32_WINNT=0x0A01;_SILENCE_CXX23_ALIGNED_STORAGE_DEPRECATION_WARNING;CMAKE_INTDIR=\"Debug\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>J:\github\xlnt\source\..\include;J:\github\xlnt\source\..\source;J:\github\xlnt\source\..\source\..\third-party\libstudxml;J:\github\xlnt\source\..\source\..\third-party\miniz;J:\github\xlnt\source\..\source\..\third-party\utfcpp;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>J:\github\xlnt\source\..\include;J:\github\xlnt\source\..\source;J:\github\xlnt\source\..\source\..\third-party\libstudxml;J:\github\xlnt\source\..\source\..\third-party\miniz;J:\github\xlnt\source\..\source\..\third-party\utfcpp;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Lib>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>J:\github\xlnt\source\..\include;J:\github\xlnt\source\..\source;J:\github\xlnt\source\..\source\..\third-party\libstudxml;J:\github\xlnt\source\..\source\..\third-party\miniz;J:\github\xlnt\source\..\source\..\third-party\utfcpp;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /utf-8</AdditionalOptions>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <DisableSpecificWarnings>4251;4275;4068</DisableSpecificWarnings>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <LanguageStandard>stdcpp14</LanguageStandard>
+      <MinimalRebuild></MinimalRebuild>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <SupportJustMyCode></SupportJustMyCode>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level4</WarningLevel>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;XLNT_STATIC=1;_CRT_SECURE_NO_WARNINGS=1;_WIN32_WINNT=0x0A01;_SILENCE_CXX23_ALIGNED_STORAGE_DEPRECATION_WARNING;CMAKE_INTDIR="Release"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+      <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;XLNT_STATIC=1;_CRT_SECURE_NO_WARNINGS=1;_WIN32_WINNT=0x0A01;_SILENCE_CXX23_ALIGNED_STORAGE_DEPRECATION_WARNING;CMAKE_INTDIR=\"Release\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>J:\github\xlnt\source\..\include;J:\github\xlnt\source\..\source;J:\github\xlnt\source\..\source\..\third-party\libstudxml;J:\github\xlnt\source\..\source\..\third-party\miniz;J:\github\xlnt\source\..\source\..\third-party\utfcpp;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>J:\github\xlnt\source\..\include;J:\github\xlnt\source\..\source;J:\github\xlnt\source\..\source\..\third-party\libstudxml;J:\github\xlnt\source\..\source\..\third-party\miniz;J:\github\xlnt\source\..\source\..\third-party\utfcpp;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Lib>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>J:\github\xlnt\source\..\include;J:\github\xlnt\source\..\source;J:\github\xlnt\source\..\source\..\third-party\libstudxml;J:\github\xlnt\source\..\source\..\third-party\miniz;J:\github\xlnt\source\..\source\..\third-party\utfcpp;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /utf-8</AdditionalOptions>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <DisableSpecificWarnings>4251;4275;4068</DisableSpecificWarnings>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <LanguageStandard>stdcpp14</LanguageStandard>
+      <MinimalRebuild></MinimalRebuild>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <Optimization>MinSpace</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <SupportJustMyCode></SupportJustMyCode>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level4</WarningLevel>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;XLNT_STATIC=1;_CRT_SECURE_NO_WARNINGS=1;_WIN32_WINNT=0x0A01;_SILENCE_CXX23_ALIGNED_STORAGE_DEPRECATION_WARNING;CMAKE_INTDIR="MinSizeRel"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+      <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;XLNT_STATIC=1;_CRT_SECURE_NO_WARNINGS=1;_WIN32_WINNT=0x0A01;_SILENCE_CXX23_ALIGNED_STORAGE_DEPRECATION_WARNING;CMAKE_INTDIR=\"MinSizeRel\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>J:\github\xlnt\source\..\include;J:\github\xlnt\source\..\source;J:\github\xlnt\source\..\source\..\third-party\libstudxml;J:\github\xlnt\source\..\source\..\third-party\miniz;J:\github\xlnt\source\..\source\..\third-party\utfcpp;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>J:\github\xlnt\source\..\include;J:\github\xlnt\source\..\source;J:\github\xlnt\source\..\source\..\third-party\libstudxml;J:\github\xlnt\source\..\source\..\third-party\miniz;J:\github\xlnt\source\..\source\..\third-party\utfcpp;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Lib>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>J:\github\xlnt\source\..\include;J:\github\xlnt\source\..\source;J:\github\xlnt\source\..\source\..\third-party\libstudxml;J:\github\xlnt\source\..\source\..\third-party\miniz;J:\github\xlnt\source\..\source\..\third-party\utfcpp;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /utf-8</AdditionalOptions>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <DisableSpecificWarnings>4251;4275;4068</DisableSpecificWarnings>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <LanguageStandard>stdcpp14</LanguageStandard>
+      <MinimalRebuild></MinimalRebuild>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <SupportJustMyCode></SupportJustMyCode>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level4</WarningLevel>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;XLNT_STATIC=1;_CRT_SECURE_NO_WARNINGS=1;_WIN32_WINNT=0x0A01;_SILENCE_CXX23_ALIGNED_STORAGE_DEPRECATION_WARNING;CMAKE_INTDIR="RelWithDebInfo"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;XLNT_STATIC=1;_CRT_SECURE_NO_WARNINGS=1;_WIN32_WINNT=0x0A01;_SILENCE_CXX23_ALIGNED_STORAGE_DEPRECATION_WARNING;CMAKE_INTDIR=\"RelWithDebInfo\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>J:\github\xlnt\source\..\include;J:\github\xlnt\source\..\source;J:\github\xlnt\source\..\source\..\third-party\libstudxml;J:\github\xlnt\source\..\source\..\third-party\miniz;J:\github\xlnt\source\..\source\..\third-party\utfcpp;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>J:\github\xlnt\source\..\include;J:\github\xlnt\source\..\source;J:\github\xlnt\source\..\source\..\third-party\libstudxml;J:\github\xlnt\source\..\source\..\third-party\miniz;J:\github\xlnt\source\..\source\..\third-party\utfcpp;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Lib>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <CustomBuild Include="J:\github\xlnt\source\CMakeLists.txt">
+      <UseUtf8Encoding>Always</UseUtf8Encoding>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule J:/github/xlnt/source/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+"D:\Program Files\CMake\bin\cmake.exe" -SJ:/github/tech-demos/SvnOperation -BJ:/github/tech-demos/SvnOperation/build --check-stamp-file J:/github/tech-demos/SvnOperation/build/external/xlnt/source/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\Program Files\CMake\share\cmake-3.30\Modules\BasicConfigVersion-ExactVersion.cmake.in;D:\Program Files\CMake\share\cmake-3.30\Modules\CMakePackageConfigHelpers.cmake;D:\Program Files\CMake\share\cmake-3.30\Modules\GNUInstallDirs.cmake;D:\Program Files\CMake\share\cmake-3.30\Modules\WriteBasicConfigVersionFile.cmake;J:\github\xlnt\cmake\XlntConfig.cmake.in;J:\github\xlnt\cmake\cmake_uninstall.cmake.in;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">J:\github\tech-demos\SvnOperation\build\external\xlnt\source\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule J:/github/xlnt/source/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+"D:\Program Files\CMake\bin\cmake.exe" -SJ:/github/tech-demos/SvnOperation -BJ:/github/tech-demos/SvnOperation/build --check-stamp-file J:/github/tech-demos/SvnOperation/build/external/xlnt/source/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\Program Files\CMake\share\cmake-3.30\Modules\BasicConfigVersion-ExactVersion.cmake.in;D:\Program Files\CMake\share\cmake-3.30\Modules\CMakePackageConfigHelpers.cmake;D:\Program Files\CMake\share\cmake-3.30\Modules\GNUInstallDirs.cmake;D:\Program Files\CMake\share\cmake-3.30\Modules\WriteBasicConfigVersionFile.cmake;J:\github\xlnt\cmake\XlntConfig.cmake.in;J:\github\xlnt\cmake\cmake_uninstall.cmake.in;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">J:\github\tech-demos\SvnOperation\build\external\xlnt\source\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Building Custom Rule J:/github/xlnt/source/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
+"D:\Program Files\CMake\bin\cmake.exe" -SJ:/github/tech-demos/SvnOperation -BJ:/github/tech-demos/SvnOperation/build --check-stamp-file J:/github/tech-demos/SvnOperation/build/external/xlnt/source/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:\Program Files\CMake\share\cmake-3.30\Modules\BasicConfigVersion-ExactVersion.cmake.in;D:\Program Files\CMake\share\cmake-3.30\Modules\CMakePackageConfigHelpers.cmake;D:\Program Files\CMake\share\cmake-3.30\Modules\GNUInstallDirs.cmake;D:\Program Files\CMake\share\cmake-3.30\Modules\WriteBasicConfigVersionFile.cmake;J:\github\xlnt\cmake\XlntConfig.cmake.in;J:\github\xlnt\cmake\cmake_uninstall.cmake.in;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">J:\github\tech-demos\SvnOperation\build\external\xlnt\source\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Building Custom Rule J:/github/xlnt/source/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
+"D:\Program Files\CMake\bin\cmake.exe" -SJ:/github/tech-demos/SvnOperation -BJ:/github/tech-demos/SvnOperation/build --check-stamp-file J:/github/tech-demos/SvnOperation/build/external/xlnt/source/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\Program Files\CMake\share\cmake-3.30\Modules\BasicConfigVersion-ExactVersion.cmake.in;D:\Program Files\CMake\share\cmake-3.30\Modules\CMakePackageConfigHelpers.cmake;D:\Program Files\CMake\share\cmake-3.30\Modules\GNUInstallDirs.cmake;D:\Program Files\CMake\share\cmake-3.30\Modules\WriteBasicConfigVersionFile.cmake;J:\github\xlnt\cmake\XlntConfig.cmake.in;J:\github\xlnt\cmake\cmake_uninstall.cmake.in;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">J:\github\tech-demos\SvnOperation\build\external\xlnt\source\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="J:\github\xlnt\include\xlnt\xlnt.hpp" />
+    <ClInclude Include="J:\github\xlnt\include\xlnt\xlnt_config.hpp" />
+    <ClInclude Include="J:\github\xlnt\include\xlnt\cell\cell.hpp" />
+    <ClInclude Include="J:\github\xlnt\include\xlnt\cell\cell_reference.hpp" />
+    <ClInclude Include="J:\github\xlnt\include\xlnt\cell\cell_type.hpp" />
+    <ClInclude Include="J:\github\xlnt\include\xlnt\cell\comment.hpp" />
+    <ClInclude Include="J:\github\xlnt\include\xlnt\cell\hyperlink.hpp" />
+    <ClInclude Include="J:\github\xlnt\include\xlnt\cell\index_types.hpp" />
+    <ClInclude Include="J:\github\xlnt\include\xlnt\cell\phonetic_run.hpp" />
+    <ClInclude Include="J:\github\xlnt\include\xlnt\cell\rich_text.hpp" />
+    <ClInclude Include="J:\github\xlnt\include\xlnt\cell\rich_text_run.hpp" />
+    <ClInclude Include="J:\github\xlnt\include\xlnt\drawing\spreadsheet_drawing.hpp" />
+    <ClInclude Include="J:\github\xlnt\include\xlnt\packaging\ext_list.hpp" />
+    <ClInclude Include="J:\github\xlnt\include\xlnt\packaging\manifest.hpp" />
+    <ClInclude Include="J:\github\xlnt\include\xlnt\packaging\relationship.hpp" />
+    <ClInclude Include="J:\github\xlnt\include\xlnt\packaging\uri.hpp" />
+    <ClInclude Include="J:\github\xlnt\include\xlnt\styles\alignment.hpp" />
+    <ClInclude Include="J:\github\xlnt\include\xlnt\styles\border.hpp" />
+    <ClInclude Include="J:\github\xlnt\include\xlnt\styles\color.hpp" />
+    <ClInclude Include="J:\github\xlnt\include\xlnt\styles\conditional_format.hpp" />
+    <ClInclude Include="J:\github\xlnt\include\xlnt\styles\fill.hpp" />
+    <ClInclude Include="J:\github\xlnt\include\xlnt\styles\font.hpp" />
+    <ClInclude Include="J:\github\xlnt\include\xlnt\styles\format.hpp" />
+    <ClInclude Include="J:\github\xlnt\include\xlnt\styles\number_format.hpp" />
+    <ClInclude Include="J:\github\xlnt\include\xlnt\styles\protection.hpp" />
+    <ClInclude Include="J:\github\xlnt\include\xlnt\styles\style.hpp" />
+    <ClInclude Include="J:\github\xlnt\include\xlnt\utils\calendar.hpp" />
+    <ClInclude Include="J:\github\xlnt\include\xlnt\utils\date.hpp" />
+    <ClInclude Include="J:\github\xlnt\include\xlnt\utils\datetime.hpp" />
+    <ClInclude Include="J:\github\xlnt\include\xlnt\utils\exceptions.hpp" />
+    <ClInclude Include="J:\github\xlnt\include\xlnt\utils\numeric.hpp" />
+    <ClInclude Include="J:\github\xlnt\include\xlnt\utils\optional.hpp" />
+    <ClInclude Include="J:\github\xlnt\include\xlnt\utils\path.hpp" />
+    <ClInclude Include="J:\github\xlnt\include\xlnt\utils\scoped_enum_hash.hpp" />
+    <ClInclude Include="J:\github\xlnt\include\xlnt\utils\time.hpp" />
+    <ClInclude Include="J:\github\xlnt\include\xlnt\utils\timedelta.hpp" />
+    <ClInclude Include="J:\github\xlnt\include\xlnt\utils\variant.hpp" />
+    <ClInclude Include="J:\github\xlnt\include\xlnt\workbook\calculation_properties.hpp" />
+    <ClInclude Include="J:\github\xlnt\include\xlnt\workbook\document_security.hpp" />
+    <ClInclude Include="J:\github\xlnt\include\xlnt\workbook\external_book.hpp" />
+    <ClInclude Include="J:\github\xlnt\include\xlnt\workbook\metadata_property.hpp" />
+    <ClInclude Include="J:\github\xlnt\include\xlnt\workbook\named_range.hpp" />
+    <ClInclude Include="J:\github\xlnt\include\xlnt\workbook\streaming_workbook_reader.hpp" />
+    <ClInclude Include="J:\github\xlnt\include\xlnt\workbook\streaming_workbook_writer.hpp" />
+    <ClInclude Include="J:\github\xlnt\include\xlnt\workbook\theme.hpp" />
+    <ClInclude Include="J:\github\xlnt\include\xlnt\workbook\workbook.hpp" />
+    <ClInclude Include="J:\github\xlnt\include\xlnt\workbook\workbook_view.hpp" />
+    <ClInclude Include="J:\github\xlnt\include\xlnt\workbook\worksheet_iterator.hpp" />
+    <ClInclude Include="J:\github\xlnt\include\xlnt\worksheet\cell_iterator.hpp" />
+    <ClInclude Include="J:\github\xlnt\include\xlnt\worksheet\cell_vector.hpp" />
+    <ClInclude Include="J:\github\xlnt\include\xlnt\worksheet\column_properties.hpp" />
+    <ClInclude Include="J:\github\xlnt\include\xlnt\worksheet\header_footer.hpp" />
+    <ClInclude Include="J:\github\xlnt\include\xlnt\worksheet\major_order.hpp" />
+    <ClInclude Include="J:\github\xlnt\include\xlnt\worksheet\page_margins.hpp" />
+    <ClInclude Include="J:\github\xlnt\include\xlnt\worksheet\page_setup.hpp" />
+    <ClInclude Include="J:\github\xlnt\include\xlnt\worksheet\pane.hpp" />
+    <ClInclude Include="J:\github\xlnt\include\xlnt\worksheet\phonetic_pr.hpp" />
+    <ClInclude Include="J:\github\xlnt\include\xlnt\worksheet\print_options.hpp" />
+    <ClInclude Include="J:\github\xlnt\include\xlnt\worksheet\range.hpp" />
+    <ClInclude Include="J:\github\xlnt\include\xlnt\worksheet\range_iterator.hpp" />
+    <ClInclude Include="J:\github\xlnt\include\xlnt\worksheet\range_reference.hpp" />
+    <ClInclude Include="J:\github\xlnt\include\xlnt\worksheet\row_properties.hpp" />
+    <ClInclude Include="J:\github\xlnt\include\xlnt\worksheet\selection.hpp" />
+    <ClInclude Include="J:\github\xlnt\include\xlnt\worksheet\sheet_format_properties.hpp" />
+    <ClInclude Include="J:\github\xlnt\include\xlnt\worksheet\sheet_pr.hpp" />
+    <ClInclude Include="J:\github\xlnt\include\xlnt\worksheet\sheet_protection.hpp" />
+    <ClInclude Include="J:\github\xlnt\include\xlnt\worksheet\sheet_view.hpp" />
+    <ClInclude Include="J:\github\xlnt\include\xlnt\worksheet\worksheet.hpp" />
+    <ClInclude Include="J:\github\xlnt\source\detail\binary.hpp" />
+    <ClInclude Include="J:\github\xlnt\source\detail\constants.hpp" />
+    <ClInclude Include="J:\github\xlnt\source\detail\default_case.hpp" />
+    <ClInclude Include="J:\github\xlnt\source\detail\unicode.hpp" />
+    <ClInclude Include="J:\github\xlnt\source\detail\cryptography\aes.hpp" />
+    <ClInclude Include="J:\github\xlnt\source\detail\cryptography\base64.hpp" />
+    <ClInclude Include="J:\github\xlnt\source\detail\cryptography\cipher.hpp" />
+    <ClInclude Include="J:\github\xlnt\source\detail\cryptography\compound_document.hpp" />
+    <ClInclude Include="J:\github\xlnt\source\detail\cryptography\encryption_info.hpp" />
+    <ClInclude Include="J:\github\xlnt\source\detail\cryptography\hash.hpp" />
+    <ClInclude Include="J:\github\xlnt\source\detail\cryptography\sha.hpp" />
+    <ClInclude Include="J:\github\xlnt\source\detail\cryptography\value_traits.hpp" />
+    <ClInclude Include="J:\github\xlnt\source\detail\cryptography\xlsx_crypto_consumer.hpp" />
+    <ClInclude Include="J:\github\xlnt\source\detail\cryptography\xlsx_crypto_producer.hpp" />
+    <ClInclude Include="J:\github\xlnt\source\detail\external\include_libstudxml.hpp" />
+    <ClInclude Include="J:\github\xlnt\source\detail\external\include_windows.hpp" />
+    <ClInclude Include="J:\github\xlnt\source\detail\header_footer\header_footer_code.hpp" />
+    <ClInclude Include="J:\github\xlnt\source\detail\implementations\cell_impl.hpp" />
+    <ClInclude Include="J:\github\xlnt\source\detail\implementations\conditional_format_impl.hpp" />
+    <ClInclude Include="J:\github\xlnt\source\detail\implementations\format_impl.hpp" />
+    <ClInclude Include="J:\github\xlnt\source\detail\implementations\formatting_record.hpp" />
+    <ClInclude Include="J:\github\xlnt\source\detail\implementations\hyperlink_impl.hpp" />
+    <ClInclude Include="J:\github\xlnt\source\detail\implementations\style_impl.hpp" />
+    <ClInclude Include="J:\github\xlnt\source\detail\implementations\stylesheet.hpp" />
+    <ClInclude Include="J:\github\xlnt\source\detail\implementations\workbook_impl.hpp" />
+    <ClInclude Include="J:\github\xlnt\source\detail\implementations\worksheet_impl.hpp" />
+    <ClInclude Include="J:\github\xlnt\source\detail\number_format\number_formatter.hpp" />
+    <ClInclude Include="J:\github\xlnt\source\detail\serialization\custom_value_traits.hpp" />
+    <ClInclude Include="J:\github\xlnt\source\detail\serialization\excel_thumbnail.hpp" />
+    <ClInclude Include="J:\github\xlnt\source\detail\serialization\open_stream.hpp" />
+    <ClInclude Include="J:\github\xlnt\source\detail\serialization\vector_streambuf.hpp" />
+    <ClInclude Include="J:\github\xlnt\source\detail\serialization\xlsx_consumer.hpp" />
+    <ClInclude Include="J:\github\xlnt\source\detail\serialization\xlsx_producer.hpp" />
+    <ClInclude Include="J:\github\xlnt\source\detail\serialization\zstream.hpp" />
+    <ClInclude Include="J:\github\xlnt\third-party\miniz\miniz.h" />
+    <ClCompile Include="J:\github\xlnt\source\cell\cell.cpp" />
+    <ClCompile Include="J:\github\xlnt\source\cell\cell_reference.cpp" />
+    <ClCompile Include="J:\github\xlnt\source\cell\comment.cpp" />
+    <ClCompile Include="J:\github\xlnt\source\cell\hyperlink.cpp" />
+    <ClCompile Include="J:\github\xlnt\source\cell\index_types.cpp" />
+    <ClCompile Include="J:\github\xlnt\source\cell\phonetic_run.cpp" />
+    <ClCompile Include="J:\github\xlnt\source\cell\rich_text.cpp" />
+    <ClCompile Include="J:\github\xlnt\source\cell\rich_text_run.cpp" />
+    <ClCompile Include="J:\github\xlnt\source\drawing\spreadsheet_drawing.cpp" />
+    <ClCompile Include="J:\github\xlnt\source\packaging\ext_list.cpp" />
+    <ClCompile Include="J:\github\xlnt\source\packaging\manifest.cpp" />
+    <ClCompile Include="J:\github\xlnt\source\packaging\relationship.cpp" />
+    <ClCompile Include="J:\github\xlnt\source\packaging\uri.cpp" />
+    <ClCompile Include="J:\github\xlnt\source\styles\alignment.cpp" />
+    <ClCompile Include="J:\github\xlnt\source\styles\border.cpp" />
+    <ClCompile Include="J:\github\xlnt\source\styles\color.cpp" />
+    <ClCompile Include="J:\github\xlnt\source\styles\conditional_format.cpp" />
+    <ClCompile Include="J:\github\xlnt\source\styles\fill.cpp" />
+    <ClCompile Include="J:\github\xlnt\source\styles\font.cpp" />
+    <ClCompile Include="J:\github\xlnt\source\styles\format.cpp" />
+    <ClCompile Include="J:\github\xlnt\source\styles\number_format.cpp" />
+    <ClCompile Include="J:\github\xlnt\source\styles\protection.cpp" />
+    <ClCompile Include="J:\github\xlnt\source\styles\style.cpp" />
+    <ClCompile Include="J:\github\xlnt\source\utils\date.cpp" />
+    <ClCompile Include="J:\github\xlnt\source\utils\datetime.cpp" />
+    <ClCompile Include="J:\github\xlnt\source\utils\exceptions.cpp" />
+    <ClCompile Include="J:\github\xlnt\source\utils\path.cpp" />
+    <ClCompile Include="J:\github\xlnt\source\utils\time.cpp" />
+    <ClCompile Include="J:\github\xlnt\source\utils\timedelta.cpp" />
+    <ClCompile Include="J:\github\xlnt\source\utils\variant.cpp" />
+    <ClCompile Include="J:\github\xlnt\source\workbook\named_range.cpp" />
+    <ClCompile Include="J:\github\xlnt\source\workbook\streaming_workbook_reader.cpp" />
+    <ClCompile Include="J:\github\xlnt\source\workbook\streaming_workbook_writer.cpp" />
+    <ClCompile Include="J:\github\xlnt\source\workbook\workbook.cpp" />
+    <ClCompile Include="J:\github\xlnt\source\workbook\worksheet_iterator.cpp" />
+    <ClCompile Include="J:\github\xlnt\source\worksheet\cell_iterator.cpp" />
+    <ClCompile Include="J:\github\xlnt\source\worksheet\cell_vector.cpp" />
+    <ClCompile Include="J:\github\xlnt\source\worksheet\header_footer.cpp" />
+    <ClCompile Include="J:\github\xlnt\source\worksheet\page_margins.cpp" />
+    <ClCompile Include="J:\github\xlnt\source\worksheet\page_setup.cpp" />
+    <ClCompile Include="J:\github\xlnt\source\worksheet\phonetic_pr.cpp" />
+    <ClCompile Include="J:\github\xlnt\source\worksheet\range.cpp" />
+    <ClCompile Include="J:\github\xlnt\source\worksheet\range_iterator.cpp" />
+    <ClCompile Include="J:\github\xlnt\source\worksheet\range_reference.cpp" />
+    <ClCompile Include="J:\github\xlnt\source\worksheet\sheet_protection.cpp" />
+    <ClCompile Include="J:\github\xlnt\source\worksheet\worksheet.cpp" />
+    <ClCompile Include="J:\github\xlnt\source\detail\constants.cpp" />
+    <ClCompile Include="J:\github\xlnt\source\detail\unicode.cpp" />
+    <ClCompile Include="J:\github\xlnt\source\detail\cryptography\aes.cpp">
+      <DisableSpecificWarnings Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">4996;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+      <DisableSpecificWarnings Condition="'$(Configuration)|$(Platform)'=='Release|x64'">4996;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+      <DisableSpecificWarnings Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">4996;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+      <DisableSpecificWarnings Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">4996;%(DisableSpecificWarnings)</DisableSpecificWarnings>
+    </ClCompile>
+    <ClCompile Include="J:\github\xlnt\source\detail\cryptography\base64.cpp" />
+    <ClCompile Include="J:\github\xlnt\source\detail\cryptography\compound_document.cpp" />
+    <ClCompile Include="J:\github\xlnt\source\detail\cryptography\encryption_info.cpp" />
+    <ClCompile Include="J:\github\xlnt\source\detail\cryptography\hash.cpp" />
+    <ClCompile Include="J:\github\xlnt\source\detail\cryptography\sha.cpp" />
+    <ClCompile Include="J:\github\xlnt\source\detail\cryptography\sha1.c" />
+    <ClCompile Include="J:\github\xlnt\source\detail\cryptography\sha512.c" />
+    <ClCompile Include="J:\github\xlnt\source\detail\cryptography\xlsx_crypto_consumer.cpp" />
+    <ClCompile Include="J:\github\xlnt\source\detail\cryptography\xlsx_crypto_producer.cpp" />
+    <ClCompile Include="J:\github\xlnt\source\detail\header_footer\header_footer_code.cpp" />
+    <ClCompile Include="J:\github\xlnt\source\detail\implementations\cell_impl.cpp" />
+    <ClCompile Include="J:\github\xlnt\source\detail\number_format\number_formatter.cpp" />
+    <ClCompile Include="J:\github\xlnt\source\detail\serialization\custom_value_traits.cpp" />
+    <ClCompile Include="J:\github\xlnt\source\detail\serialization\open_stream.cpp" />
+    <ClCompile Include="J:\github\xlnt\source\detail\serialization\vector_streambuf.cpp" />
+    <ClCompile Include="J:\github\xlnt\source\detail\serialization\xlsx_consumer.cpp" />
+    <ClCompile Include="J:\github\xlnt\source\detail\serialization\xlsx_producer.cpp" />
+    <ClCompile Include="J:\github\xlnt\source\detail\serialization\zstream.cpp" />
+    <ClCompile Include="J:\github\xlnt\third-party\miniz\miniz.c" />
+    <Object Include="J:\github\tech-demos\SvnOperation\build\external\xlnt\source\third-party\libstudxml\libstudxml.dir\$(Configuration)\parser.obj" />
+    <Object Include="J:\github\tech-demos\SvnOperation\build\external\xlnt\source\third-party\libstudxml\libstudxml.dir\$(Configuration)\qname.obj" />
+    <Object Include="J:\github\tech-demos\SvnOperation\build\external\xlnt\source\third-party\libstudxml\libstudxml.dir\$(Configuration)\serializer.obj" />
+    <Object Include="J:\github\tech-demos\SvnOperation\build\external\xlnt\source\third-party\libstudxml\libstudxml.dir\$(Configuration)\value-traits.obj" />
+    <Object Include="J:\github\tech-demos\SvnOperation\build\external\xlnt\source\third-party\libstudxml\libstudxml.dir\$(Configuration)\char-props.obj" />
+    <Object Include="J:\github\tech-demos\SvnOperation\build\external\xlnt\source\third-party\libstudxml\libstudxml.dir\$(Configuration)\genx.obj" />
+    <Object Include="J:\github\tech-demos\SvnOperation\build\external\xlnt\source\third-party\libstudxml\libstudxml.dir\$(Configuration)\xmlparse.obj" />
+    <Object Include="J:\github\tech-demos\SvnOperation\build\external\xlnt\source\third-party\libstudxml\libstudxml.dir\$(Configuration)\xmlrole.obj" />
+    <Object Include="J:\github\tech-demos\SvnOperation\build\external\xlnt\source\third-party\libstudxml\libstudxml.dir\$(Configuration)\xmltok.obj" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="J:\github\tech-demos\SvnOperation\build\ZERO_CHECK.vcxproj">
+      <Project>{583B762E-E2FF-3814-878F-0E08FACAA4F4}</Project>
+      <Name>ZERO_CHECK</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+    <ProjectReference Include="J:\github\tech-demos\SvnOperation\build\external\xlnt\source\third-party\libstudxml\libstudxml.vcxproj">
+      <Project>{5B711CE8-FBB9-3597-ACB0-32613E96E750}</Project>
+      <Name>libstudxml</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

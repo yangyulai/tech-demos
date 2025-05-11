@@ -12,156 +12,195 @@
 #include <wx/button.h>
 #include <wx/textctrl.h>
 #include <wx/font.h>
-// IDs for controls
-enum {
-    ID_TextInput = wxID_HIGHEST + 1,
-    ID_FilePicker,
-    ID_Button,
-    ID_Button1,
-    ID_Button2,
-    ID_Button3
-};
+#include <fstream>
 
+// 主窗口类：包含控件和事件处理函数
 class MyFrame : public wxFrame {
 public:
-    MyFrame();
+    MyFrame(const wxString& title);
 
 private:
-    wxTextCtrl* m_textInput;
-    wxFilePickerCtrl* m_filePicker;
-    wxTextCtrl* m_outputBox;
-    wxButton* m_button;
-    wxButton* m_button1;
-    wxButton* m_button2;
-    wxButton* m_button3;
+    // 控件成员变量
+    wxFilePickerCtrl* m_filePickerCtrl;  // 文件选择器
+    wxTextCtrl* m_filePathCtrl;    // 显示文件路径（只读）
+    wxTextCtrl* m_inputTextCtrl;      // 输入文本框（单行）
+    wxTextCtrl* m_outputTextCtrl;     // 输出结果文本框（多行只读）
+    wxButton* m_toUpperButton;        // 转大写按钮
+    wxButton* m_countButton;          // 统计字符按钮
+    wxButton* m_clearButton;          // 清空输出按钮
+    wxButton* m_exportButton;         // 导出结果按钮
 
-    void OnButton1Clicked(wxCommandEvent& event);
-    void OnButton2Clicked(wxCommandEvent& event);
-    void OnButton3Clicked(wxCommandEvent& event);
-    void OnButtonClicked(wxCommandEvent& event);
-    wxDECLARE_EVENT_TABLE();
+    // 事件处理函数
+    void OnFileSelected(wxFileDirPickerEvent& event); // 文件选择
+    void OnConvertToUpper(wxCommandEvent& event);  // 将输入文本转换为大写
+    void OnCountCharacters(wxCommandEvent& event); // 统计输入文本字符数
+    void OnClearOutput(wxCommandEvent& event);     // 清空输出框内容
+    void OnExportResult(wxCommandEvent& event);    // 导出结果到文本文件
+
+    // 辅助函数：获取用户输入的文本并去除两端空白
+    wxString GetInputText();
 };
-wxBEGIN_EVENT_TABLE(MyFrame, wxFrame)
-EVT_BUTTON(ID_Button, MyFrame::OnButtonClicked)
-EVT_BUTTON(ID_Button1, MyFrame::OnButton1Clicked)
-EVT_BUTTON(ID_Button2, MyFrame::OnButton2Clicked)
-EVT_BUTTON(ID_Button3, MyFrame::OnButton3Clicked)
-wxEND_EVENT_TABLE()
 
+// 应用程序类
 class MyApp : public wxApp {
 public:
-    bool OnInit() override {
-        // 设置全局中文字体
-        wxFont font(12, wxFONTFAMILY_DEFAULT, wxFONTSTYLE_NORMAL,
-            wxFONTWEIGHT_NORMAL, false, "Microsoft YaHei");
-        MyFrame* frame = new MyFrame();
-        frame->SetFont(font);
+    virtual bool OnInit() {
+        MyFrame* frame = new MyFrame(L"示例界面");
         frame->Show(true);
         return true;
     }
 };
 
-
-
+// 实现应用程序主类
 wxIMPLEMENT_APP(MyApp);
 
-MyFrame::MyFrame()
-    : wxFrame(nullptr, wxID_ANY, L"xx工具", wxDefaultPosition, wxSize(500, 400))
+// 构造函数：创建并布局界面
+MyFrame::MyFrame(const wxString& title)
+    : wxFrame(NULL, wxID_ANY, title, wxDefaultPosition, wxSize(600, 500))
 {
-    wxPanel* panel = new wxPanel(this);
+    // 设置字体：使用微软雅黑以保证中文显示一致
+    wxFont font(10, wxFONTFAMILY_SWISS, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL, false, "Microsoft YaHei");
+
+    // 主布局：垂直方向
     wxBoxSizer* mainSizer = new wxBoxSizer(wxVERTICAL);
-
-    // 输入区域
-    wxStaticBoxSizer* inputSizer = new wxStaticBoxSizer(wxVERTICAL, panel, L"输入");
-    {
-        wxFlexGridSizer* gridSizer = new wxFlexGridSizer(2, 5, 5);
-        gridSizer->AddGrowableCol(1);
-
-        // 文字输入框
-        gridSizer->Add(new wxStaticText(panel, wxID_ANY, L"文本输入:"), 0, wxALIGN_CENTER_VERTICAL);
-        m_textInput = new wxTextCtrl(panel, ID_TextInput);
-        gridSizer->Add(m_textInput, 1, wxEXPAND);
-
-        // 文件选择框
-        gridSizer->Add(new wxStaticText(panel, wxID_ANY, L"文件选择:"), 0, wxALIGN_CENTER_VERTICAL);
-        m_filePicker = new wxFilePickerCtrl(panel, ID_FilePicker, wxEmptyString,
-            "选择文件...", "*.*");
-        gridSizer->Add(m_filePicker, 1, wxEXPAND);
-
-        inputSizer->Add(gridSizer, 1, wxEXPAND | wxALL, 5);
-    }
-    // 2. 新增的按钮区域
-    wxStaticBoxSizer* buttonSizer2 = new wxStaticBoxSizer(wxHORIZONTAL, panel, L"操作按钮");
-    {
-        m_button1 = new wxButton(panel, ID_Button1, L"处理输入");
-        m_button2 = new wxButton(panel, ID_Button2, L"清空内容");
-        m_button3 = new wxButton(panel, ID_Button3, L"导出结果");
-
-        // 设置按钮之间的间距
-        buttonSizer2->Add(m_button1, 0, wxALL, 5);
-        buttonSizer2->Add(m_button2, 0, wxALL, 5);
-        buttonSizer2->Add(m_button3, 0, wxALL, 5);
-        buttonSizer2->AddStretchSpacer(); // 让按钮靠左对齐
-    }
-    // 按钮
-    m_button = new wxButton(panel, ID_Button, L"处理输入");
-    wxBoxSizer* buttonSizer = new wxBoxSizer(wxHORIZONTAL);
-    buttonSizer->AddStretchSpacer();
-    buttonSizer->Add(m_button, 0, wxALIGN_CENTER);
-    buttonSizer->AddStretchSpacer();
-
-    // 输出区域
-    wxStaticBoxSizer* outputSizer = new wxStaticBoxSizer(wxVERTICAL, panel, L"输出");
-    m_outputBox = new wxTextCtrl(panel, wxID_ANY, wxEmptyString,
+    // —— 文件选择 区域 —— 
+    wxStaticBoxSizer* fileSizer = new wxStaticBoxSizer(wxHORIZONTAL, this, L"选择文件加载到输入：");
+    m_filePickerCtrl = new wxFilePickerCtrl(this, wxID_ANY, wxEmptyString,
+        "选择文本文件...",
+        "Text files (*.txt)|*.txt|All files (*.*)|*.*",
         wxDefaultPosition, wxDefaultSize,
-        wxTE_MULTILINE | wxTE_READONLY | wxTE_RICH);
-    outputSizer->Add(m_outputBox, 1, wxEXPAND | wxALL, 5);
+        wxFLP_FILE_MUST_EXIST | wxFLP_USE_TEXTCTRL);
+    m_filePickerCtrl->SetFont(font);
+    m_filePickerCtrl->Bind(wxEVT_FILEPICKER_CHANGED, &MyFrame::OnFileSelected, this);
+    fileSizer->Add(m_filePickerCtrl, 1, wxEXPAND | wxALL, 5);
+    mainSizer->Add(fileSizer, 0, wxEXPAND | wxLEFT | wxRIGHT | wxTOP, 10);
+    // 显示所选文件路径
+    //wxStaticText* pathLabel = new wxStaticText(this, wxID_ANY, "当前文件路径：");
+    //pathLabel->SetFont(font);
+    //fileSizer->Add(pathLabel, 0, wxLEFT | wxTOP, 5);
 
-    // 组合所有控件
-    mainSizer->Add(inputSizer, 0, wxEXPAND | wxALL, 5);
-    mainSizer->Add(buttonSizer, 0, wxEXPAND | wxTOP | wxBOTTOM, 10);
-    mainSizer->Add(buttonSizer2, 0, wxEXPAND | wxTOP | wxBOTTOM, 10);
-    mainSizer->Add(outputSizer, 1, wxEXPAND | wxALL, 5);
+    //m_filePathCtrl = new wxTextCtrl(this, wxID_ANY, "", wxDefaultPosition, wxDefaultSize,
+    //    wxTE_READONLY);
+    //m_filePathCtrl->SetFont(font);
+    //fileSizer->Add(m_filePathCtrl, 0, wxEXPAND | wxALL, 5);
 
-    panel->SetSizer(mainSizer);
+    mainSizer->Add(fileSizer, 0, wxEXPAND | wxALL, 10);
+    // 输入标签和文本框
+    wxStaticText* inputLabel = new wxStaticText(this, wxID_ANY, L"输入文本：");
+    inputLabel->SetFont(font);
+    m_inputTextCtrl = new wxTextCtrl(this, wxID_ANY, "", wxDefaultPosition, wxDefaultSize);
+    m_inputTextCtrl->SetFont(font);
 
-    // 设置窗口最小大小
-    SetMinSize(wxSize(400, 300));
+    wxBoxSizer* inputSizer = new wxBoxSizer(wxHORIZONTAL);
+    inputSizer->Add(inputLabel, 0, wxALIGN_CENTER_VERTICAL | wxRIGHT, 5);
+    inputSizer->Add(m_inputTextCtrl, 1, wxEXPAND);
+    mainSizer->Add(inputSizer, 0, wxEXPAND | wxALL, 10);
+
+    // 输出标签和多行文本框
+    wxStaticText* outputLabel = new wxStaticText(this, wxID_ANY, L"输出结果：");
+    outputLabel->SetFont(font);
+    m_outputTextCtrl = new wxTextCtrl(this, wxID_ANY, "", wxDefaultPosition, wxDefaultSize,
+        wxTE_MULTILINE | wxTE_READONLY);
+    m_outputTextCtrl->SetFont(font);
+
+    wxBoxSizer* outputSizer = new wxBoxSizer(wxVERTICAL);
+    outputSizer->Add(outputLabel, 0, wxBOTTOM, 5);
+    outputSizer->Add(m_outputTextCtrl, 1, wxEXPAND);
+    mainSizer->Add(outputSizer, 1, wxEXPAND | wxLEFT | wxRIGHT, 10);
+
+    // 操作按钮
+    m_toUpperButton = new wxButton(this, wxID_ANY, L"转为大写");
+    m_toUpperButton->SetFont(font);
+    m_toUpperButton->Bind(wxEVT_BUTTON, &MyFrame::OnConvertToUpper, this);
+
+    m_countButton = new wxButton(this, wxID_ANY, L"统计字符");
+    m_countButton->SetFont(font);
+    m_countButton->Bind(wxEVT_BUTTON, &MyFrame::OnCountCharacters, this);
+
+    m_clearButton = new wxButton(this, wxID_ANY, L"清空输出");
+    m_clearButton->SetFont(font);
+    m_clearButton->Bind(wxEVT_BUTTON, &MyFrame::OnClearOutput, this);
+
+    m_exportButton = new wxButton(this, wxID_ANY, L"导出结果");
+    m_exportButton->SetFont(font);
+    m_exportButton->Bind(wxEVT_BUTTON, &MyFrame::OnExportResult, this);
+
+    wxBoxSizer* buttonSizer = new wxBoxSizer(wxHORIZONTAL);
+    buttonSizer->Add(m_toUpperButton, 0, wxRIGHT, 10);
+    buttonSizer->Add(m_countButton, 0, wxRIGHT, 10);
+    buttonSizer->Add(m_clearButton, 0, wxRIGHT, 10);
+    buttonSizer->Add(m_exportButton, 0);
+    mainSizer->Add(buttonSizer, 0, wxALIGN_CENTER | wxALL, 10);
+
+    // 应用布局并显示
+    SetSizer(mainSizer);
+    Layout();
 }
 
-void MyFrame::OnButtonClicked(wxCommandEvent& WXUNUSED(event)) {
-    wxString text = m_textInput->GetValue();
-    wxString file = m_filePicker->GetPath();
-
-    wxString output;
-    output << L"文本输入内容: " << text << L"\n\n";
-    output << L"选择的文件路径: " << file;
-
-    m_outputBox->SetValue(output);
-    m_outputBox->SetInsertionPointEnd();  // 滚动到末尾
-}
-void MyFrame::OnButton1Clicked(wxCommandEvent& event) {
-    wxString text = m_textInput->GetValue();
-    wxString file = m_filePicker->GetPath();
-
-    wxString output;
-    output << "文本输入内容: " << text << "\n\n";
-    output << "选择的文件路径: " << file;
-
-    m_outputBox->SetValue(output);
-    m_outputBox->SetInsertionPointEnd();
+// 辅助函数：获取并返回用户输入的文本，去除首尾空白
+wxString MyFrame::GetInputText() {
+    wxString text = m_inputTextCtrl->GetValue();
+    text.Trim(true).Trim(false);
+    return text;
 }
 
-void MyFrame::OnButton2Clicked(wxCommandEvent& event) {
-    m_textInput->Clear();
-    m_filePicker->SetPath("");
-    m_outputBox->Clear();
+// 事件处理：将输入文本转换为大写并显示在输出框
+void MyFrame::OnConvertToUpper(wxCommandEvent& event) {
+    wxString text = GetInputText();
+    text.MakeUpper();  // 转大写
+    m_outputTextCtrl->SetValue(text);
+}
+// 文件选择事件：将所选文件的 UTF-8 文本内容加载到输入框
+void MyFrame::OnFileSelected(wxFileDirPickerEvent& event) {
+    wxString path = event.GetPath();
+    //m_filePathCtrl->SetValue(path);
+    std::ifstream inFile(path.utf8_str(), std::ios::binary);
+    if (!inFile) {
+        wxMessageBox(L"无法打开所选文件", "错误", wxOK | wxICON_ERROR);
+        return;
+    }
+    std::string content((std::istreambuf_iterator<char>(inFile)),
+        std::istreambuf_iterator<char>());
+    inFile.close();
+    // 将读取的内容设到多行输入框
+    m_inputTextCtrl->SetValue(wxString::FromUTF8(content));
 }
 
-void MyFrame::OnButton3Clicked(wxCommandEvent& event) {
-    wxString message = "此处应实现导出功能\n当前内容:\n" + m_outputBox->GetValue();
-    wxMessageBox(message, "导出结果", wxOK | wxICON_INFORMATION, this);
+// 事件处理：统计输入文本字符数并显示在输出框
+void MyFrame::OnCountCharacters(wxCommandEvent& event) {
+    wxString text = GetInputText();
+    wxString result = wxString::Format("字符数：%llu", (unsigned long long)text.length());
+    m_outputTextCtrl->SetValue(result);
 }
+
+// 事件处理：清空输出框内容
+void MyFrame::OnClearOutput(wxCommandEvent& event) {
+    m_outputTextCtrl->Clear();
+}
+
+// 事件处理：将输出框内容导出为 UTF-8 编码的文本文件
+void MyFrame::OnExportResult(wxCommandEvent& event) {
+    wxFileDialog saveFileDialog(this, L"保存结果", L"", L"",
+        L"Text files (*.txt)|*.txt|All files (*.*)|*.*",
+        wxFD_SAVE | wxFD_OVERWRITE_PROMPT);
+    if (saveFileDialog.ShowModal() == wxID_CANCEL) {
+        return; // 用户取消
+    }
+    wxString path = saveFileDialog.GetPath();
+    wxString content = m_outputTextCtrl->GetValue();
+
+    // 使用 std::ofstream 保存为 UTF-8 编码
+    std::ofstream outFile(path.utf8_str(), std::ios::binary);
+    if (outFile) {
+        std::string data = std::string(content.utf8_str());
+        outFile << data;
+        outFile.close();
+    }
+    else {
+        wxMessageBox(L"无法打开文件进行写入", L"错误", wxOK | wxICON_ERROR);
+    }
+}
+
 //
 //int main() {
 //    boost::asio::io_context ioc;
