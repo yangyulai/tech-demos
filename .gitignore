@@ -34,3 +34,5 @@
 *.sqlite
 /launcher-client/.vs
 /AnimatedHeart/x64
+/WinHTTPGuiDemo/out
+/WinHTTPGuiDemo/.vs
