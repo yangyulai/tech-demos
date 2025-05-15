@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 #include <string>
 #include <windows.h>
 #include <vector>
@@ -80,9 +80,4 @@ inline std::string wstring_to_utf8(const std::wstring& ws)
 		nullptr, nullptr);
 	return s;
 }
-namespace str
-{
-	std::vector<std::wstring> getInputFile();
-	std::vector<std::filesystem::path> getInputPath();
-	std::vector<std::filesystem::path> cin();
-}
+

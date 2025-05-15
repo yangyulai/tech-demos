@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 #include <string>
 #include <xlnt/xlnt.hpp>
 #include <filesystem>
@@ -6,6 +6,8 @@
 #include <format>
 #include "ConfigLoader.h"
 #include <sol/sol.hpp>
+
+
 struct ColumnInfo
 {
 	std::string name;
@@ -17,11 +19,18 @@ struct ColumnInfo
 		{
 			return std::format(R"("{}": "{}")", name, field_name);
 		}
-		else if (type == "int" || type=="int8_t" || type == "int16_t" || type == "int32_t"
+		else if (type == "int" || type == "int8_t" || type == "int16_t" || type == "int32_t"
 			|| type == "int64_t" || type == "uint8_t" || type == "uint16_t" || type == "uint32_t"
-			|| type == "uint64_t" || type == "short" || type == "char" || type == "float")
+			|| type == "uint64_t" || type == "short" || type == "char" || type == "float" || type == "bool")
 		{
-			return std::format("\"{}\": {}", name, field_name);
+			if (field_name.empty())
+			{
+				return std::format(R"("{}": 0)", name);
+			}
+			else
+			{
+				return std::format(R"("{}": {})", name, field_name);
+			}
 		}
 		return "";
 	}
@@ -35,16 +44,13 @@ class XL2JSON
 	std::string table_name;
 	std::unordered_map<std::string,ColumnInfo> column_info;
 	std::vector<std::filesystem::path> paths;
-	std::string server_path;
 	std::string cpp_path;
 	sol::state lua;
 	std::vector<std::pair<xlnt::column_t,ColumnInfo>> _columns;
 
 public:
-	explicit XL2JSON(const std::string& file_name, const std::wstring& luaScriptPath);
-	void set_paths(std::string_view str);
-	void cin_paths();
-	void show_tips() const;
+	explicit XL2JSON();
+	void set_paths(std::string str);
 	void analyze_excel_columns();
 	void excel_to_json();
 	void export_struct();
@@ -54,3 +60,4 @@ public:
 	std::string suffix = ".json";
 	std::string cpp_file_name = "JsonStruct.h";
 };
+
