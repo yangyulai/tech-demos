@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <title>演示 POST / DELETE 请求</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 40px;
+    }
+    button {
+      margin: 8px 0;
+      padding: 8px 16px;
+      font-size: 14px;
+    }
+    pre {
+      background-color: #f4f4f4;
+      padding: 12px;
+      border: 1px solid #ccc;
+      white-space: pre-wrap;
+    }
+  </style>
+</head>
+<body>
+  <h2>在网页中演示发起 POST 和 DELETE 请求</h2>
+
+  <!-- 按钮：点击后发起 POST -->
+  <button id="btnPost">发送 POST 请求 (/api/echo)</button>
+  <!-- 按钮：点击后发起 DELETE -->
+  <button id="btnDelete">发送 DELETE 请求 (/api/resource)</button>
+
+  <h3>服务器响应：</h3>
+  <pre id="output">（等待操作…）</pre>
+
+  <script>
+    // 获取页面中的 DOM 元素
+    const btnPost   = document.getElementById('btnPost');
+    const btnDelete = document.getElementById('btnDelete');
+    const output    = document.getElementById('output');
+
+    // 辅助函数：把结果打印到 <pre> 里
+    function logResult(label, text) {
+      const now = new Date().toLocaleTimeString();
+      output.textContent = `[${now}] ${label}\n${text}`;
+    }
+
+    // 1. 发起一个 POST 请求，Content-Type: application/json，body 是 {"test": "data"}
+    async function doPost() {
+      const url = 'http://localhost:8080/api/echo';
+      // 构造要发送的 JSON 对象
+      const data = { test: 'data' };
+
+      try {
+        const response = await fetch(url, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json; charset=utf-8'
+          },
+          body: JSON.stringify(data),
+          // 默认情况下，fetch 不会直接抛错，除非网络级别错误（DNS、超时等）。
+          // 如果想把 status 非 2xx 也当成错误可以手动抛。
+        });
+
+        // 这里我们演示先拿到 HTTP 状态码，再把响应体当成文本或 JSON
+        const status = response.status;
+        const contentType = response.headers.get('Content-Type') || '';
+        let respBodyText;
+
+        if (contentType.includes('application/json')) {
+          // 如果 Content-Type 中包含 application/json，则 parse 成对象
+          const obj = await response.json();
+          respBodyText = JSON.stringify(obj, null, 2);
+        } else {
+          // 否则当作普通文本读取
+          respBodyText = await response.text();
+        }
+
+        logResult(
+          `POST → 状态码 ${status}`,
+          respBodyText
+        );
+      }
+      catch (err) {
+        // 无法连接、超时等网络层面的错误
+        logResult('POST → 网络错误', err.toString());
+      }
+    }
+
+    // 2. 发起一个 DELETE 请求
+    async function doDelete() {
+      const url = 'http://localhost:8080/api/resource';
+
+      try {
+        const response = await fetch(url, {
+          method: 'DELETE',
+          // 通常 DELETE 请求也可以带请求头，比如需要身份验证：
+          // headers: { 'Authorization': 'Bearer xxxxx' },
+        });
+
+        const status = response.status;
+        const bodyText = await response.text();
+
+        logResult(
+          `DELETE → 状态码 ${status}`,
+          bodyText
+        );
+      }
+      catch (err) {
+        logResult('DELETE → 网络错误', err.toString());
+      }
+    }
+
+    // 绑定按钮点击事件
+    btnPost.addEventListener('click',   () => { logResult('正在发送 POST…', ''); doPost(); });
+    btnDelete.addEventListener('click', () => { logResult('正在发送 DELETE…', ''); doDelete(); });
+  </script>
+</body>
+</html>

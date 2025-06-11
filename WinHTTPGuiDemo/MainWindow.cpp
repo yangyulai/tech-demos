@@ -186,14 +186,14 @@ LRESULT MainWindow::OnCommand(WPARAM wParam) {
             for (auto& [btnId,name]:btnCallbacks_)
             {
                 if (name.empty()) continue;
-                std::wstring request = L"http://172.16.1.237:8080/to_json?name=" + utf8_to_wstring(name);
+                std::wstring request = L"http://124.70.155.221:8080/to_json?name=" + utf8_to_wstring(name);
                 //std::wstring request = L"http://127.0.0.1:8080/to_json?name=" + utf8_to_wstring(name);
                 DoHttpRequest(request, L"");
             }
             return 0;
         }else
         {
-            std::wstring request = L"http://172.16.1.237:8080/to_json?name=" + utf8_to_wstring(it->second);
+            std::wstring request = L"http://124.70.155.221:8080/to_json?name=" + utf8_to_wstring(it->second);
             //std::wstring request = L"http://127.0.0.1:8080/to_json?name=" + utf8_to_wstring(it->second);
             DoHttpRequest(request, L"");
         }

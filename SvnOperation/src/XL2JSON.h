@@ -32,13 +32,25 @@ struct ColumnInfo
 				return std::format(R"("{}": {})", name, field_name);
 			}
 		}
+		else if (type.starts_with("std::vector"))
+		{
+			if (field_name.empty() || field_name == "0")
+			{
+				return std::format(R"("{}": [])", name);
+
+			}
+			else
+			{
+				return std::format(R"("{}": [{}])", name, field_name);
+
+			}
+		}
 		return "";
 	}
 };
 
 class XL2JSON
 {
-	std::unique_ptr<ConfigLoader> config;
 	xlnt::workbook wb;
 	xlnt::worksheet ws;
 	std::string table_name;

@@ -3,7 +3,7 @@
 #include "AppConfig.h"
 #include <ranges>
 
-XL2JSON::XL2JSON() : config(std::make_unique<ConfigLoader>())
+XL2JSON::XL2JSON()
 {
 	lua.open_libraries(sol::lib::base, sol::lib::io, sol::lib::string);
 	lua.script_file(utf8ToString(app_config::ToJsonConfig));
