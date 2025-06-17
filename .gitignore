@@ -61,3 +61,5 @@
 /SvnOperation/out/build
 /SvnOperation/build
 *.sdf
+/Coroutines/build
+/Coroutines/.vs
