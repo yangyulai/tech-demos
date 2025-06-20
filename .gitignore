@@ -64,3 +64,4 @@
 /Coroutines/build
 /Coroutines/.vs
 /ConcurrencyLogPipe/build-Release
+/SharedMemoryLog/build
